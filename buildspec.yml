@@ -9,6 +9,7 @@ phases:
       - echo PREBUILD PHASE BEGIN
       - pwd
       - ls -R
+      - go env
       - echo $GOPATH
       - echo $GOROOT
       - go get github.com/leonegeo/demoapp-gocommon

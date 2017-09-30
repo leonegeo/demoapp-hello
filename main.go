@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	common "github.com/leonegeo/demoapp-gocommon"
-	"github.com/leonegeo/demoapp-hello/service"
 )
 
 func main() {
@@ -19,7 +18,7 @@ func main() {
 
 	s := &http.Server{
 		Addr:    port,
-		Handler: service.Handlers(),
+		Handler: Handlers(),
 	}
 
 	log.Fatal(s.ListenAndServe())

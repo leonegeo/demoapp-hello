@@ -2,31 +2,19 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo INSTALL PHASE BEGIN
-      - echo INSTALL PHASE END
-  pre_build:
-    commands:
-      - echo PREBUILD PHASE BEGIN
-      - pwd
-      - ls -R
-      - go env
-      - echo $GOPATH
-      - echo $GOROOT
       - go get github.com/leonegeo/demoapp-gocommon
       - go get github.com/stretchr/testify/assert
-      - ls -R
-      - echo PREBUILD PHASE END
+      - go get -u github.com/golang/lint/golint
+  pre_build:
+    commands:
+      - golint -set_exit_status
+      - go test
   build:
     commands:
-      - echo BUILD PHASE BEGIN
-      - echo Build started on `date`
-      - pwd
-      - ls -R
-      - cd app ; go build -o hello main.go
-      - echo BUILD PHASE END
+      - go build
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo no postbuild commands
 artifacts:
   files:
-    - app/hello
+    - demoapp-hello

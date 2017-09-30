@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Build started on `date`
       - pwd
-      - cd app ; go build -o hello main.o
+      - cd app ; go build -o hello main.go
       - pwd
   post_build:
     commands:

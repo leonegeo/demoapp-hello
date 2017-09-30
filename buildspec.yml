@@ -10,6 +10,8 @@ phases:
     commands:
       - echo Build started on `date`
       - pwd
+      - go get github.com/leonegeo/demoapp-gocommon
+      - go get github.com/stretchr/testify/assert
       - cd app ; go build -o hello main.go
       - pwd
   post_build:
